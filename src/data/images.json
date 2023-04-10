@@ -1,0 +1,198 @@
+{
+    "tag": "ul",
+    "class": "inner-slider",
+    "children": [
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/ezSFnAFi9hY/500x500",
+        "alt": "cut citrus fruits. "
+       },
+       "Lorem Ipsum"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/TIGDsyy0TK4/500x500",
+        "alt": "sliced mango. "
+       },
+       "Dolor Sit"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/TdDtTu2rv4s/500x500",
+        "alt": "a bunch of blueberries. "
+       },
+       "Amet Consectetur"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/eudGUrDdBB0/500x500",
+        "alt": "a pineapple sitting on a table. "
+       },
+       "Adipiscing Elit"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/eJH4f1rlG7g/500x500",
+        "alt": "frozen raspberries. "
+       },
+       "Nunc Tortor"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/24RUrLSW1HI/500x500",
+        "alt": "a sliced strawberry. "
+       },
+       "Metus Mollis"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/h5yMpgOI5nI/500x500",
+        "alt": "an arrangement of assorted sliced fruits. "
+       },
+       "Congue Sagittis"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/2TYrR2IB72s/500x500",
+        "alt": "sliced watermelons. "
+       },
+       "Vestibulum Et"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/1cWZgnBhZRs/500x500",
+        "alt": "grapefruits, lemons, and pomegranates. "
+       },
+       "Donec Eget"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/9aOswReDKPo/500x500",
+        "alt": "half of an avocado. "
+       },
+       "Maecenas et Justo"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/Nl7eLS8E2Ss/500x500",
+        "alt": "half of a lime. "
+       },
+       "Malesuada Quam"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/3HhXWJzG5Ko/500x500",
+        "alt": "a single cherry with stem. "
+       },
+       "Ultricies Sollicitudin"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/fczCr7MdE7U/500x500",
+        "alt": "a bunch of bananas. "
+       },
+       "Gravida Nibh"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/uI900SItAyY/500x500",
+        "alt": "three pears. "
+       },
+       "Pellentesque Sapien"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/0AynZdszfz0/500x500",
+        "alt": "a basket full of peaches next to a plate with sliced peaches. "
+       },
+       "Suspendisse Vel"
+      ]
+     },
+     {
+      "tag": "li",
+      "class": "card",
+      "children": [
+       {
+        "tag": "img",
+        "src": "https://source.unsplash.com/C6JhUKs9q8M/500x500",
+        "alt": "a bowl of avocados. "
+       },
+       "Mauris Consectetur"
+      ]
+     }
+    ]
+   }

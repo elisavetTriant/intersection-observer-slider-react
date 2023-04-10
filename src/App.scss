@@ -1,0 +1,161 @@
+html {
+  box-sizing: border-box;
+  color: #292929;
+  background-color: #f3f4f6;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.gallery_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffecb3;
+  box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.3);
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {
+    //max-width: 580px; /* nice */
+    width: calc(100% - 15px);
+  }
+
+  .active {
+    scroll-snap-type: unset;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow-x: scroll;
+    /* prevent accidentally going back or triggering other swipe events */
+    overscroll-behavior: contain;
+    /* hide scroll bar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* momentum scroll on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* disbable vertical scroll for touch */
+    touch-action: pan-x;
+    /* scroll snapping */
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    li {
+      background-color: #ffffff;
+      color: #212121;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+      margin: 15px 30px 15px 0;
+      text-align: center;
+      padding: 10px 10px 35px 10px;
+      width: 80vw;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      /* scroll snapping */
+      scroll-snap-align: center;
+
+      &.active {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+      }
+
+      /* hacky fix for padding at the end of the list */
+      &:last-child {
+        position: relative;
+      }
+
+      &:last-child::after {
+        position: absolute;
+        left: 100%;
+        height: 1px;
+        width: 20px;
+        display: block;
+        content: "";
+      }
+
+      img {
+        padding-bottom: 20px;
+        height: 100%;
+        min-width: 100%;
+        object-fit: cover;
+        vertical-align: bottom;
+      }
+
+      // Medium devices (tablets, 768px and up)
+      @media (min-width: 768px) {
+        padding: 10px 10px 40px 10px;
+      }
+    }
+  }
+
+  .indicatorsList {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .paging {
+      margin: 0 10px;
+      width: 100px;
+      font-size: 1.2rem;
+      color: #634439;
+      font-weight: bold;
+      -webkit-animation: fadeinout 4s linear forwards;
+      animation: fadein 1.5s linear forwards;
+      opacity: 0;
+    }
+
+    @-webkit-keyframes fadein {
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeinout {
+      50% {
+        opacity: 1;
+      }
+    }
+    button,
+    .indicator {
+      margin: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 2px;
+      padding: 8px;
+      color: #fff;
+      background-color: #3d3230;
+      text-align: center;
+      box-shadow: 0 2px 1px rgba(0, 0, 0, 1);
+      cursor: pointer;
+      margin: 5px 1px;
+      border: none;
+      outline: none;
+
+      &:focus {
+        outline: dotted 1px;
+      }
+
+      &.active {
+        background-color: #d32f2f;
+      }
+    }
+  }
+}
