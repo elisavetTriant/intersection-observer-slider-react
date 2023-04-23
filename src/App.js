@@ -1,7 +1,11 @@
 import './App.scss';
 import imageData from './data/images.json';
+import { useRef } from 'react';
+
 
 function App() {
+
+  const itemsRef = useRef(null);
 
   let isDown = false;
   let startX;
@@ -42,6 +46,27 @@ function App() {
     e.currentTarget.scrollLeft = scrollLeft - walk;
   };
 
+  //Scroll to the specific element, through the indicators/buttons
+
+  function getMap() {
+    if (!itemsRef.current) {
+      // Initialize the Map on first usage.
+      itemsRef.current = new Map();
+    }
+    return itemsRef.current;
+  }
+
+
+  function scrollToId(itemId) {
+    const map = getMap();
+    const node = map.get(itemId);
+    node.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "center"
+    })
+  }
+
   return (
     <>
       <div className="gallery_wrapper slider-container">
@@ -54,7 +79,18 @@ function App() {
         >
           {imageData.children.map((imageSlide, index) => {
             return (
-              <li className="card" key={index}>
+              <li 
+              className="card" 
+              key={index} 
+              ref={(node) => {
+                //https://react.dev/learn/manipulating-the-dom-with-refs#how-to-manage-a-list-of-refs-using-a-ref-callback
+                const map = getMap();
+                if (node) {
+                  map.set(index, node);
+                } else {
+                  map.delete(index);
+                }
+              }}>
                 <img src={imageSlide.children[0].src} alt={imageSlide.children[0].alt} />{imageSlide.children[1]}
               </li>
             )
@@ -62,9 +98,9 @@ function App() {
         </ul>
         <div className="indicatorsList">
           {
-            imageData.children.map((imageSlideIndicator, index) => {
+            imageData.children.map((imageSlide, index) => {
               return (
-                <button className="indicator" key={index}>{index + 1}</button>
+                <button className="indicator" key={index} onClick={() => scrollToId(index)}>{index + 1}</button>
               )
             })}
         </div >
