@@ -1,11 +1,30 @@
 import './App.scss';
 import imageData from './data/images.json';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 
 function App() {
 
   const itemsRef = useRef(null);
+
+  const [imgsLoaded, setImgsLoaded] = useState(false)
+
+  useEffect(() => {
+    const loadImage = image => {
+      return new Promise((resolve, reject) => {
+        const loadImg = new Image()
+        loadImg.src = image.children[0].src
+        loadImg.onload = () => resolve(image.children[0].src)
+        loadImg.onerror = err => reject(err)
+      })
+    }
+
+    Promise.all(imageData.children.map(image => loadImage(image)))
+      .then(() => {
+        setImgsLoaded(true);
+      })
+      .catch(err => console.log("Failed to load images", err))
+  }, [])
 
   let isDown = false;
   let startX;
@@ -15,6 +34,7 @@ function App() {
     isDown = false;
     e.currentTarget.style.cursor = "grab";
   };
+
 
   const handleMouseDown = function (e) {
     isDown = true;
@@ -68,8 +88,9 @@ function App() {
   }
 
   return (
-    <>
-      <div className="gallery_wrapper slider-container">
+    imgsLoaded ?  
+     <>
+      <div id="slider" className="gallery-wrapper slider-container">
         <ul className="inner-slider"
           onMouseEnter={(e) => handleMouseEnter(e)}
           onMouseDown={(e) => handleMouseDown(e)}
@@ -80,7 +101,7 @@ function App() {
           {imageData.children.map((imageSlide, index) => {
             return (
               <li 
-              className="card" 
+              className= {imgsLoaded ? "fade-in card" : "card" }
               key={index} 
               ref={(node) => {
                 //https://react.dev/learn/manipulating-the-dom-with-refs#how-to-manage-a-list-of-refs-using-a-ref-callback
@@ -96,7 +117,7 @@ function App() {
             )
           })}
         </ul>
-        <div className="indicatorsList">
+        <div className="indicators-list">
           {
             imageData.children.map((imageSlide, index) => {
               return (
@@ -105,7 +126,10 @@ function App() {
             })}
         </div >
       </div>
-    </>
+    </> : 
+    <div className="loading-wrapper">
+      <h1>Loading images...</h1>
+    </div>
   );
 }
 
