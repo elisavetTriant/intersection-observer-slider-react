@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/intersection-observer-slider-react/static/css/main.e0a1dbe5.css",
-    "main.js": "/intersection-observer-slider-react/static/js/main.55f59505.js",
+    "main.js": "/intersection-observer-slider-react/static/js/main.f8f356e0.js",
     "index.html": "/intersection-observer-slider-react/index.html",
     "main.e0a1dbe5.css.map": "/intersection-observer-slider-react/static/css/main.e0a1dbe5.css.map",
-    "main.55f59505.js.map": "/intersection-observer-slider-react/static/js/main.55f59505.js.map"
+    "main.f8f356e0.js.map": "/intersection-observer-slider-react/static/js/main.f8f356e0.js.map"
   },
   "entrypoints": [
     "static/css/main.e0a1dbe5.css",
-    "static/js/main.55f59505.js"
+    "static/js/main.f8f356e0.js"
   ]
 }
