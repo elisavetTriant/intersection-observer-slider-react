@@ -33,37 +33,39 @@ function App() {
 
   useEffect(() => {
 
-    //OBSERVER FUNCTIONALITY
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const indicatorsMap = getIndicatorsMap()
+    if (imgsLoaded) {
+      //OBSERVER FUNCTIONALITY
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const indicatorsMap = getIndicatorsMap()
 
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active")
-            const currentIndex = Array.from(rootRef.current.children).indexOf(entry.target)
-            indicatorsMap.get(currentIndex).classList.add("active")
-          } else {
-            entry.target.classList.remove("active")
-            const currentIndex = Array.from(rootRef.current.children).indexOf(entry.target)
-            indicatorsMap.get(currentIndex).classList.remove("active")
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active")
+              const currentIndex = Array.from(rootRef.current.children).indexOf(entry.target)
+              //console.log(currentIndex)
+              indicatorsMap.get(currentIndex).classList.add("active")
+            } else {
+              entry.target.classList.remove("active")
+              const currentIndex = Array.from(rootRef.current.children).indexOf(entry.target)
+              indicatorsMap.get(currentIndex).classList.remove("active")
+            }
+          })
+        }
+        ,
+        { root: rootRef.current, rootMargin: "0px", threshold: 0.85 }
 
-          }
-        })
+      );
+      const map = getItemsMap();
+      // observe each item
+      for (let item of map.values()) {
+        observer.observe(item);
       }
-      ,
-      { root: rootRef.current, rootMargin: "0px", threshold: 0.85 }
 
-    );
-    const map = getItemsMap();
-    // observe each item
-    for (let item of map.values()) {
-      observer.observe(item);
+      return () => observer.disconnect();
     }
 
-    return () => observer.disconnect();
-
-  }, [])
+  }, [imgsLoaded])
 
 
   let isDown = false;
